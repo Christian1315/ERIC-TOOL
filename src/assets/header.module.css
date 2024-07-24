@@ -1,0 +1,38 @@
+* {
+    font-family: "Roboto Slab";
+}
+
+#NAV {
+    border-radius: 0 0 10px 10px;
+}
+
+.icon {
+    /* width: 50px; */
+}
+
+form {
+    align-items: center;
+}
+
+form span {
+    border-right: 1px solid #2A7FB8;
+    padding-inline: 10px;
+}
+
+form .search {
+    background-color: rgba(000, 000, #2A7FB8, 0.5);
+    border-radius: 20px;
+    padding-inline-end: 50px;
+}
+
+form .searchLarge {
+    padding-inline-end: 100px;
+    background-color: rgba(000, 000, #2A7FB8, 0.5);
+    border-radius: 20px;
+    /* align-items: ; */
+}
+
+form #add {
+    border-radius: 20px 0px 0px 20px;
+    border-right: 0px solid #fff!important;
+}

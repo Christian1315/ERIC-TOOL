@@ -1,0 +1,13 @@
+.title {
+    color: rgba(0, 0, 0, 0.6);
+
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24.2px;
+    text-align: left;
+}
+
+img{
+    margin-top: -10px;
+}

@@ -1,0 +1,21 @@
+*{
+    font-family: 'Inter';
+}
+
+.title{
+    color: #343331;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.description{
+    
+}
+
+a{
+    width: 100%;
+    border-radius: 20px!important;
+    color: #fff!important;
+    background-color: #2A7FB8!important;
+}

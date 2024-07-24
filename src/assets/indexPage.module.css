@@ -1,0 +1,51 @@
+#afterBanner{
+    background-color: #D8E8F2!important;
+    padding-block: 50px;
+    padding-inline: 50px;
+}
+
+.itemCard{
+    /* background-color: #4E7B99 ; */
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.activeCard{
+    background-color: #629EC6!important;
+    color: #fff!important;
+}
+
+.activeCard p{
+    /* border: #fff solid 1px!important; */
+    color: #fff!important;
+}
+
+.activeCard button{
+    border: #fff solid 1px!important;
+    color: #fff!important;
+}
+
+.itemCard button{
+    color: #629EC6;
+    text-transform: uppercase;
+    border: #629EC6 solid 1px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.bg_blue{
+    background-color: #2A7FB8!important;
+}
+
+/* CATEGORIES */
+
+#categories{
+    background-color: #D8E8F2!important;
+    padding-block: 50px;
+    padding-inline: 50px;
+    margin-top: 50px;
+}
