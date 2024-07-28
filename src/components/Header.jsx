@@ -66,7 +66,7 @@ const Header = () => {
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary shadow" id={style.NAV}>
                 <div className="container-fluid">
-                    <button className="btn" type="button" style={{border:"solid 1px var(--bs-navbar-toggler-border-color)"}}>
+                    <button className="btn" type="button" style={{ border: "solid 1px var(--bs-navbar-toggler-border-color)" }}>
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
@@ -80,16 +80,23 @@ const Header = () => {
                         </ul>
 
                         <form className="d-flex" role="search">
-
                             <div className="input-group">
                                 <span className="input-group-text bg-white" id={style.add}><i className="bi bi-search"></i></span>
                                 <input className={"form-control me-2 " + searchClass} onClick={(e) => HandleOnclick(e)} onBlur={(e) => HandleOnblur(e)} type="search" placeholder="Search ..." aria-label="Search" />
-                                {/* <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"/> */}
                             </div>
 
-                            <div className="d-flex justify-align-items">
-                                <span className=""> <img src="images/profil.png" className="img-fluid" srcSet="" /> </span>
-                                <span className=""> <img src="images/profil.png" className="img-fluid" srcSet="" /> </span>
+                            <div className="d-flex justify-align-items"  style={{justifyItems:'center'}}>
+                                <span className={`dropdown dropstart ` +style.lang}>
+                                    <span className="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-hand-index-thumb"></i>
+                                    </span>
+                                    <ul className="dropdown-menu p-1">
+                                        <li><Link to="/login" className="dropdown-item text-center" href="#">French</Link></li>
+                                        <li><Link to="/login" className="dropdown-item  my-2 text-center" href="#">English</Link></li>
+                                        <li><Link to="/login" className="dropdown-item text-center" href="#">Profile</Link></li>
+                                    </ul>
+                                </span>
+                                {/* </span> */}
                             </div>
                         </form>
                     </div>

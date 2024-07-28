@@ -1,0 +1,141 @@
+* {
+    font-family: 'Inter';
+}
+
+
+#login .title {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 33px;
+}
+
+#login .description {
+    color: #EBEBE4;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.36px;
+}
+
+
+#login #col2 {
+    background-image: url("images/login_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-inline: 200px;
+    padding-block: 50px;
+    color: #fff;
+}
+
+#login #col1 {
+    align-items: center;
+    padding-top: 200px;
+}
+
+#login #col1 img {
+    width: 300px;
+    margin-inline-start: 50px;
+}
+
+#login .block2 {
+    border-top: 1px dotted #fff;
+    border-bottom: 1px dotted #fff;
+    margin-block: 20px;
+    padding-block: 20px;
+    line-height: 19px;
+}
+
+#login .block2 h3 {
+    color: #EBEBE4;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+#login .block2 .reset {
+    color: #0BCB07B2 !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    background: transparent !important;
+    text-decoration: none;
+}
+
+#login #col2 form {
+    margin-block: 20px;
+}
+
+#login #col2 form input {
+    background-color: #EBEBE480;
+    border-radius: 20px;
+    border-color: transparent;
+}
+
+#login #col2 form input::placeholder,
+#login #col2 form input {
+    color: #fff;
+}
+
+#login #col2 .formSwitch {
+    justify-content: space-between;
+}
+
+#login #col2 .formSwitch label {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+#login #col2 .formSwitch button {
+    background-color: #fff !important;
+    color: #2A7FB8B2 !important;
+    border-radius: 10px !important;
+    padding-inline: 20px;
+}
+
+#login #col2 .signInWithUsername {
+    width: 100% !important;
+    font-weight: 300 !important;
+    font-size: 14px !important;
+    line-height: 17px !important;
+    text-align: center !important;
+    color: #fff !important;
+    border-radius: 20px !important;
+    border: 1px solid #fff !important;
+    padding-block: 10px;
+    margin-block: 20px;
+}
+
+#login #col2 .register {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    text-align: left;
+}
+
+#login #col2 .register .start {
+    color: #0BCB07 !important;
+    background: transparent !important;
+    text-decoration: none;
+}
+
+
+@media (max-width:1120px) {
+    #login #col2 {
+        padding-inline: 150px;
+    }
+}
+
+@media (max-width:775px) {
+    #login #col1 {
+        display: none;
+    }
+
+    #login #col2 {
+        width: 100%;
+        background-image: url("images/login_background_carre.png");
+    }
+
+    #login #col2 form{
+        border: dotted 2px #fff;
+        border-radius: 10px;
+        padding: 10px;
+    }
+}

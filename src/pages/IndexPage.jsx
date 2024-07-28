@@ -5,6 +5,7 @@ import Banner from "../components/Banner";
 import style from "../assets/indexPage.module.css"
 import SectionTitle from "../components/SectionTitle";
 import ItemCard from "../components/ItemCard";
+import Footer from "../components/Footer";
 // import style from "../assets/banner.module.css";
 
 const IndexPage = () => {
@@ -310,7 +311,7 @@ const IndexPage = () => {
                             </div>
                             <div className="row">
                                 {
-                                        secondSlide && categories.map((item, index) => (
+                                    secondSlide && categories.map((item, index) => (
                                         <div className="col-2" key={item.id}>
                                             {
                                                 <div className="carousel-item">
@@ -402,6 +403,11 @@ const IndexPage = () => {
                         }
                     </div>
                 </div>
+            </div>
+
+            {/* FOOTER */}
+            <div className="px-5">
+                <Footer fixed={false} />
             </div>
         </>
     )
