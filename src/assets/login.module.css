@@ -44,7 +44,15 @@
     line-height: 19px;
 }
 
-#login .block2 h3 {
+#login .block2_register {
+    border-top: 1px dotted #fff;
+    /* border-bottom: 1px dotted #fff; */
+    margin-block: 20px;
+    /* padding-block: 10px; */
+    line-height: 19px;
+}
+
+#login .block2 h3,#login .block2_register h3 {
     color: #EBEBE4;
     font-weight: 400;
     font-size: 16px;
