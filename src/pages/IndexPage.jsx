@@ -254,23 +254,29 @@ const IndexPage = () => {
             <div className="px-5">
                 <div className="container-fluid" id={style.afterBanner}>
                     <div className="row">
-                        {
-                            itemsCard.map((item) => (
-                                <div className="col-md-3 col-sm-6" key={item.id}>
-                                    <div
-                                        className={item.active ? style.itemCard + " " + style.activeCard : style.itemCard}
-                                        id={item.id}
-                                        onClick={() => HandleCardClick(item.id)}
-                                    >
-                                        <button className="btn">{item.title}</button>
+                        <div className="col-md-12">
+                            <div className={style._row}>
+                                <div className="row">
+                                    {
+                                        itemsCard.map((item) => (
+                                            <div className="col-md-3 col-sm-6" key={item.id}>
+                                                <div
+                                                    className={item.active ? style.itemCard + " " + style.activeCard : style.itemCard}
+                                                    id={item.id}
+                                                    onClick={() => HandleCardClick(item.id)}
+                                                >
+                                                    <button className="btn">{item.title}</button>
 
-                                        <p className="">
-                                            {item.description}
-                                        </p>
-                                    </div>
+                                                    <p className="">
+                                                        {item.description}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
-                            ))
-                        }
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,67 @@
+.canvasLink a {
+    background-color: transparent !important;
+    color: #343331B2 !important;
+    text-decoration: none;
+}
+
+#offcanvasHeader {
+    background-color: #2A7FB8 !important;
+    color: #fff;
+}
+
+#offcanvasHeader h5 {
+    align-items: center !important;
+}
+
+#offcanvasHeader i {
+    font-size: 30px !important;
+}
+
+span.HeaderTitle {
+    margin-left: 20px;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24.2px;
+}
+
+.canvasLink {
+    margin-block: 20px !important;
+    border: none;
+}
+
+.canvasLink li {
+    border: none;
+}
+
+.canvasLink li i {
+    color: #2A7FB8B2;
+    margin-right: 10px;
+}
+
+.shareBtn {
+    border: 1px solid #2A7FB8B2;
+    color: #2A7FB8B2 !important;
+    border-radius: 5px;
+    display: flex;
+    align-content: space-between;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24.2px;
+    margin-bottom: 20px;
+}
+
+.shareBtn i {
+    margin-right: 10px;
+}
+
+p.dev {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24.2px;
+    color: #343331B2;
+    border-bottom: 1px solid #343331B2;
+}

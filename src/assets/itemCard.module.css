@@ -13,7 +13,12 @@
     
 }
 
-a{
+#itemCard{
+    border: 1px solid #2A7FB8B2;
+    border-radius: 10px!important;
+}
+
+#itemCard a{
     width: 100%;
     border-radius: 20px!important;
     color: #fff!important;

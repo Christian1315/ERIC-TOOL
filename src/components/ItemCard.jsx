@@ -4,7 +4,7 @@ const ItemCard = ({ title, description, btnExist = true, btnText, btnUrl, imgUrl
     return (
         <>
             {
-                <div className="card text-center shadow mb-5">
+                <div className="card text-center shadow mb-5" id={style.itemCard}>
                     <img src={imgUrl} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className={style.title}>{title}</h5>

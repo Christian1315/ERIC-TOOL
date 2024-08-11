@@ -5,10 +5,12 @@ import { useState } from "react";
 import ItemCard from "./ItemCard";
 
 import { Outlet, Link } from "react-router-dom";
+import CanvasOffset from "./CanvasOffset";
 
 const Header = () => {
     const [searchClass, setSearchClass] = useState(style.search)
     const [searchResult, setSearchResult] = useState(false)
+    const [login, setLogin] = useState(false)
 
     // CATEGORY SECTION DATA
     const [categories, setCategories] = useState([
@@ -56,17 +58,21 @@ const Header = () => {
     }
 
     const HandleOnblur = (e) => {
-        setSearchClass(style.search);
-        e.currentTarget.placeholder = "Search ..."
-        setSearchResult(false)
+        // setSearchClass(style.search);
+        // e.currentTarget.placeholder = "Search ..."
+        // setSearchResult(false)
+    }
+
+    const LoginHandle = (e) => {
+        setLogin(true)
     }
 
     //###
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary shadow" id={style.NAV}>
+            <nav className="navbar navbar-expand-lg bg-body-tertiary shadow" id={style.NAV} >
                 <div className="container-fluid">
-                    <button className="btn" type="button" style={{ border: "solid 1px var(--bs-navbar-toggler-border-color)" }}>
+                    <button className="btn" type="button" style={{ border: "solid 1px var(--bs-navbar-toggler-border-color)" }} data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
@@ -85,18 +91,22 @@ const Header = () => {
                                 <input className={"form-control me-2 " + searchClass} onClick={(e) => HandleOnclick(e)} onBlur={(e) => HandleOnblur(e)} type="search" placeholder="Search ..." aria-label="Search" />
                             </div>
 
-                            <div className="d-flex justify-align-items"  style={{justifyItems:'center'}}>
-                                <span className={`dropdown dropstart ` +style.lang}>
+                            <div className="d-flex justify-align-items" style={{ justifyItems: 'center' }}>
+                                <span className={`dropdown dropstart ` + style.lang}>
                                     <span className="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-hand-index-thumb"></i>
+                                        <i className="bi bi-filter-circle"></i>
                                     </span>
                                     <ul className="dropdown-menu p-1">
-                                        <li><Link to="/login" className="dropdown-item text-center" href="#">French</Link></li>
-                                        <li><Link to="/login" className="dropdown-item  my-2 text-center" href="#">English</Link></li>
-                                        <li><Link to="/login" className="dropdown-item text-center" href="#">Profile</Link></li>
+                                        <li><Link to="/login" className="dropdown-item text-center bg-light text-primary" href="#">French</Link></li>
+                                        <li><Link to="/login" className="dropdown-item  my-2 text-center bg-light text-primary" href="#">English</Link></li>
+                                        <li>
+                                            {login ?
+                                                <button className="dropdown-item text-center bg-light text-primary">Profil</button> :
+                                                <Link to="/login" className="dropdown-item text-center bg-light text-primary" onClick={() => setLogin(true)}>Login</Link>
+                                            }
+                                        </li>
                                     </ul>
                                 </span>
-                                {/* </span> */}
                             </div>
                         </form>
                     </div>
@@ -105,27 +115,92 @@ const Header = () => {
 
             {/* SEARCH RESULTS */}
             {searchResult &&
-                <div className="row" style={{ position: 'absolute', right: '0' }}>
+                <div className="row" id={style.searchResult} style={{ position: 'absolute', right: '0' }}>
                     <div className="col-12">
-                        <div className="align-items-center pt-2">
-                            <div className="row text-center">
-                                <div className="card p-0" style={{ width: "20rem", marginRight: "9rem", height: "10px!important" }}>
-                                    <div className="card-header">
-                                        <h4> <em> Search results ... </em> </h4>
+                        <div className="align-items-center p-5">
+                            <div className="row">
+                                <div className="card bg-light px-2" style={{ width: "45rem", marginRight: "0rem", height: "10px!important" }}>
+                                    <div className="card-header float-right">
+                                        <span type="button" onClick={()=>setSearchResult(false)} className="btn-close text-white"></span>
                                     </div>
                                     <ul className="list-group list-group-flush p-0">
                                         {
                                             categories.map((item) => (
-                                                <li key={item.id} className="list-group-item"><a href="#" className="btn bg-light text-dark" target="_blank" rel="noopener noreferrer">{item.title}</a> </li>
+                                                <li key={item.id} className="list-group-item text-left"><a href="#" className="text-dark" target="_blank" rel="noopener noreferrer">{item.title}</a> </li>
                                             ))
                                         }
                                     </ul>
+
+                                    {/* <p className="">Quiks links</p> */}
+                                    <div id="carouselExample" className="carousel slide mt-3">
+                                        <div className="carousel-inner" id={style.carouselInner}>
+                                            <div className="carousel-item active">
+                                                <div className="row">
+                                                    {
+                                                        categories.map((item) => (
+                                                            <div className="col-md-3">
+                                                                <ItemCard key={item.id}
+                                                                    title={'Sockets'}
+                                                                    btnText={item.btnText}
+                                                                    btnUrl={item.btnUrl}
+                                                                    imgUrl={item.imgUrl}
+                                                                />
+                                                            </div>
+                                                        ))
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div className="carousel-item">
+                                                <div className="row">
+                                                    {
+                                                        categories.map((item) => (
+                                                            <div className="col-md-3">
+                                                                <ItemCard key={item.id}
+                                                                    title={'Sockets'}
+                                                                    btnText={item.btnText}
+                                                                    btnUrl={item.btnUrl}
+                                                                    imgUrl={item.imgUrl}
+                                                                />
+                                                            </div>
+                                                        ))
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div className="carousel-item">
+                                                <div className="row">
+                                                    {
+                                                        categories.map((item) => (
+                                                            <div className="col-md-3">
+                                                                <ItemCard key={item.id}
+                                                                    title={'Sockets'}
+                                                                    btnText={item.btnText}
+                                                                    btnUrl={item.btnUrl}
+                                                                    imgUrl={item.imgUrl}
+                                                                />
+                                                            </div>
+                                                        ))
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                            <i class="bi bi-arrow-left-circle-fill" id={style.CarouselAction}></i>
+                                            <span className="visually-hidden">Previous</span>
+                                        </button>
+                                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                            <i class="bi bi-arrow-right-circle-fill" id={style.CarouselAction}></i>
+                                            <span className="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div >
             }
+
+            {/*OFFSET CANVAS  */}
+            <CanvasOffset />
         </>
     )
 }

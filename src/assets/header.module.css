@@ -6,6 +6,10 @@
     border-radius: 0 0 10px 10px;
 }
 
+li{
+    border-color: #2A7FB8;
+}
+
 .icon {
     /* width: 50px; */
 }
@@ -20,12 +24,9 @@ form span {
 }
 
 .lang {
-    border: 1px solid #2A7FB8;
+    /* border: 1px solid #2A7FB8; */
     color: #2A7FB8;
-    padding: 2px;
-    /* margin-inline: 10px; */
-    /* width: 50px; */
-    /* height: 50px; */
+    padding: 1px;
     border-radius: 50px;
 }
 
@@ -45,4 +46,17 @@ form .searchLarge {
 form #add {
     border-radius: 20px 0px 0px 20px;
     border-right: 0px solid #fff !important;
+}
+
+#searchResult a{
+    /* text-align: left!important; */
+    text-decoration: none;
+}
+
+#carouselInner{
+    padding-inline:70px ;
+}
+#CarouselAction{
+    color: #2A7FB8!important;
+    padding: auto;
 }
