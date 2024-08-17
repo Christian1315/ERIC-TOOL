@@ -8,6 +8,7 @@ const CanvasOffset = () => {
                 <h5 className={"offcanvas-title"} id="offcanvasExampleLabel"> <i className="bi bi-person-circle text-white mr-2"></i> <span className={style.HeaderTitle}>Hello, Pascal</span> </h5>
                 <button type="button" className="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
+
             <div className="offcanvas-body px-3">
                 <div>
                     Choose an option to continue

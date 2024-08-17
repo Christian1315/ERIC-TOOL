@@ -58,9 +58,9 @@ const Header = () => {
     }
 
     const HandleOnblur = (e) => {
-        // setSearchClass(style.search);
-        // e.currentTarget.placeholder = "Search ..."
-        // setSearchResult(false)
+        setSearchClass(style.search);
+        e.currentTarget.placeholder = "Search ..."
+        setSearchResult(false)
     }
 
     const LoginHandle = (e) => {
@@ -88,13 +88,31 @@ const Header = () => {
                         <form className="d-flex" role="search">
                             <div className="input-group">
                                 <span className="input-group-text bg-white" id={style.add}><i className="bi bi-search"></i></span>
-                                <input className={"form-control me-2 " + searchClass} onClick={(e) => HandleOnclick(e)} onBlur={(e) => HandleOnblur(e)} type="search" placeholder="Search ..." aria-label="Search" />
+                                <input className={"form-control me-2 " + searchClass} onClick={(e) => HandleOnclick(e)} type="search" placeholder="Search ..." aria-label="Search" />
                             </div>
 
                             <div className="d-flex justify-align-items" style={{ justifyItems: 'center' }}>
+                                <strong className="px-2" style={{ color: "#2A7FB8B2" }}> | </strong>
+
                                 <span className={`dropdown dropstart ` + style.lang}>
                                     <span className="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i className="bi bi-filter-circle"></i>
+                                        <i class="bi bi-person-circle"></i>
+                                    </span>
+                                    <ul className="dropdown-menu p-2 mx-3 mt-5">
+                                        <li><Link to="login" className="btn btn-sm btn bg_blue_btn dropdown-item text-center roundered" href="#">Sign in</Link></li>
+                                        <li className="drop">New visitor? <Link to="register" className="text-center text-blue" href="#" style={{textDecoration:"none"}}>Start here</Link></li>
+                                        {/* <li>
+                                            {login ?
+                                                <button className="dropdown-item text-center bg-light text-primary">Profil</button> :
+                                                <Link to="/login" className="dropdown-item text-center bg-light text-primary" onClick={() => setLogin(true)}>Login</Link>
+                                            }
+                                        </li> */}
+                                    </ul>
+                                </span>
+                                <strong className="px-2" style={{ color: "#2A7FB8B2" }}> | </strong>
+                                <span className={`dropdown dropstart ` + style.lang}>
+                                    <span className="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-globe-americas"></i>
                                     </span>
                                     <ul className="dropdown-menu p-1">
                                         <li><Link to="/login" className="dropdown-item text-center bg-light text-primary" href="#">French</Link></li>
@@ -121,7 +139,7 @@ const Header = () => {
                             <div className="row">
                                 <div className="card bg-light px-2" style={{ width: "45rem", marginRight: "0rem", height: "10px!important" }}>
                                     <div className="card-header float-right">
-                                        <span type="button" onClick={()=>setSearchResult(false)} className="btn-close text-white"></span>
+                                        <span type="button" onClick={() => setSearchResult(false)} className="btn-close text-white"></span>
                                     </div>
                                     <ul className="list-group list-group-flush p-0">
                                         {

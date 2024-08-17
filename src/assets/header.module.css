@@ -10,10 +10,6 @@ li{
     border-color: #2A7FB8;
 }
 
-.icon {
-    /* width: 50px; */
-}
-
 form {
     align-items: center;
 }
@@ -28,6 +24,10 @@ form span {
     color: #2A7FB8;
     padding: 1px;
     border-radius: 50px;
+}
+
+.lang i{
+    color: #2A7FB8;
 }
 
 form .search {
