@@ -1,0 +1,22 @@
+.bg_blue{
+    background-color: #2A7FB8;
+}
+
+.bg_blue_btn{
+    background-color: #2A7FB8;
+    color: #fff!important;
+}
+
+.bg_blue_btn:hover{
+    color: #2A7FB8!important;
+    background-color: #fff!important;
+    border-color: #2A7FB8!important;
+}
+
+.roundered{
+    border-radius: 10px;
+}
+
+.text-blue{
+    color: #2A7FB8;
+}
