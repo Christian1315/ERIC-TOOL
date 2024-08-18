@@ -15,14 +15,14 @@ const CanvasOffset = () => {
                 </div>
 
                 <ul className={"list-group " + style.canvasLink}>
-                    <li className="list-group-item"><i class="bi bi-house-gear"></i> <Link to={"/"}>Home</Link></li>
-                    <li className="list-group-item"><i class="bi bi-info-circle"></i> <a href="">About this site</a></li>
-                    <li className="list-group-item"><i class="bi bi-question-circle"> </i><a href="">Contact</a></li>
+                    <li className="list-group-item"><i className="bi bi-house-gear"></i> <Link to={"/"}>Home</Link></li>
+                    <li className="list-group-item"><i className="bi bi-info-circle"></i> <a href="">About this site</a></li>
+                    <li className="list-group-item"><i className="bi bi-question-circle"> </i><a href="">Contact</a></li>
                     <li className="list-group-item">
 
                         <div className="dropdown">
                             <a href="#" className="dropdown-toggle" data-bs-toggle="dropdown">
-                                <i class="bi bi-tools"></i> Item Borrowings
+                                <i className="bi bi-tools"></i> Item Borrowings
                             </a>
                             <ul className="dropdown-menu w-100">
                                 <li><a className="dropdown-item" href="#">Action</a></li>
@@ -34,7 +34,7 @@ const CanvasOffset = () => {
                     <li className="list-group-item">
                         <div className="dropdown">
                             <a href="#" className="dropdown-toggle" data-bs-toggle="dropdown">
-                                <i class="bi bi-currency-dollar"></i> Item rental
+                                <i className="bi bi-currency-dollar"></i> Item rental
                             </a>
                             <ul className="dropdown-menu w-100">
                                 <li><a className="dropdown-item" href="#">Action</a></li>

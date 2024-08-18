@@ -56,6 +56,13 @@
     border-radius: 10px;
 }
 
+#banner .rightBtn:hover {
+    background-color: #fff;
+    color: #2A7FB8;
+    border: #2A7FB8 solid 1px;
+    border-radius: 10px;
+}
+
 /* RESPONSIVITE */
 @media (max-width: 911px) {
     #banner .banner_man {

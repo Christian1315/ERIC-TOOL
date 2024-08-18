@@ -20,3 +20,7 @@
 .text-blue{
     color: #2A7FB8;
 }
+
+button:hover,a:hover,li:hover{
+    transition-duration: 1s;
+}

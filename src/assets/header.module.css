@@ -6,7 +6,7 @@
     border-radius: 0 0 10px 10px;
 }
 
-li{
+li {
     border-color: #2A7FB8;
 }
 
@@ -26,7 +26,7 @@ form span {
     border-radius: 50px;
 }
 
-.lang i{
+.lang i {
     color: #2A7FB8;
 }
 
@@ -48,15 +48,52 @@ form #add {
     border-right: 0px solid #fff !important;
 }
 
-#searchResult a{
+#searchResult a {
     /* text-align: left!important; */
     text-decoration: none;
 }
 
-#carouselInner{
-    padding-inline:70px ;
+#carouselInner {
+    padding-inline: 70px;
 }
-#CarouselAction{
-    color: #2A7FB8!important;
+
+#CarouselAction {
+    color: #2A7FB8 !important;
     padding: auto;
+}
+
+#profilImg {
+    width: 30px;
+    border-radius: 50%;
+}
+
+.goToAccount {
+    background-color: #73bef0;
+    color: #2A7FB8;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.signOff {
+    background-color: #fff;
+    color: #2A7FB8;
+    border-radius: 10px;
+    font-weight: bold;
+    border: 1px solid #2A7FB8;
+}
+
+#Profil ul li{
+    border: none!important;
+}
+
+#Profil ul li a {
+    text-decoration: none;
+}
+
+#Profil ul li a:hover{
+    border: #2c2b2b 1px solid;
+    border-radius: 5px;
+    width: 100%;
+    display: block;
+    padding: 5px;
 }

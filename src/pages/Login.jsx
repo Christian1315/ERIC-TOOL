@@ -2,18 +2,22 @@ import { Link } from "react-router-dom"
 import style from "../assets/login.module.css"
 import Footer from "../components/Footer"
 
+import { useGlobalContext } from '../Context';
+
 const Login = () => {
+    const {SubmitLogin } = useGlobalContext();
+
     return <>
         <div className="container-fluid" id={style.login}>
             <div className="row">
                 <div className="col-md-5 col-sm-12" id={style.col1}>
-                    <img src="images/login_secure.png" className="img-fluid" alt="" srcset="" />
+                    <img src="images/login_secure.png" className="img-fluid" alt="" srcSet="" />
                 </div>
                 <div className="col-md-7 col-sm-12" id={style.col2}>
                     <h3 className={style.title}>Sign in</h3>
                     <p className={style.description}>Log in to your account to borrow and rent all your favourite items and also take advantage of exclusive shopping offers on your account.</p>
 
-                    <form action="" method="get">
+                    <form onSubmit={SubmitLogin}>
                         <div className={style.block1}>
                             <div className="form-group mb-3">
                                 <input type="email" placeholder="Enter your email" className="form-control" />
@@ -25,7 +29,7 @@ const Login = () => {
                             <div className={"d-flex " + style.formSwitch} >
                                 <div className="form-check form-switch">
                                     <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" />
-                                    <label className="form-check-label" for="flexSwitchCheckChecked">Stay signed in</label>
+                                    <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Stay signed in</label>
                                 </div>
 
                                 <button type="submit" className="btn btn-sm">Sign in</button>
@@ -39,7 +43,7 @@ const Login = () => {
 
                         <span className="text-center text-white d-block">Or</span>
 
-                        <button className={"btn btn-sm " + style.signInWithUsername}>Sign in with your username instead</button>
+                        <button type="submit" className={"btn btn-sm " + style.signInWithUsername}>Sign in with your username instead</button>
                         <p className={"text-white "+ style.register}> New visitor? <Link to="/register" className={style.start}>Start here</Link> </p>
                     </form>
                 </div>

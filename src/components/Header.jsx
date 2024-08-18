@@ -1,71 +1,13 @@
 import style from "../assets/header.module.css";
-import { FaBeer } from 'react-icons/fa';
-import { CgProfile } from "react-icons/cg";
-import { useState } from "react";
 import ItemCard from "./ItemCard";
 
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CanvasOffset from "./CanvasOffset";
 
+import { useGlobalContext } from '../Context';
+
 const Header = () => {
-    const [searchClass, setSearchClass] = useState(style.search)
-    const [searchResult, setSearchResult] = useState(false)
-    const [login, setLogin] = useState(false)
-
-    // CATEGORY SECTION DATA
-    const [categories, setCategories] = useState([
-        {
-            "id": 1,
-            "imgUrl": "images/item1.png",
-            "title": "Sockets",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 2,
-            "imgUrl": "images/item2.png",
-            "title": "Pliers",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 3,
-            "imgUrl": "images/item3.png",
-            "title": "Power Tools",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 4,
-            "imgUrl": "images/item1.png",
-            "title": "Screwdrivers",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        }
-    ])
-    const HandleOnclick = (e) => {
-        setSearchClass(style.searchLarge);
-        e.currentTarget.placeholder = "Enter your key and find ...."
-        setSearchResult(true)
-    }
-
-    const HandleOnblur = (e) => {
-        setSearchClass(style.search);
-        e.currentTarget.placeholder = "Search ..."
-        setSearchResult(false)
-    }
-
-    const LoginHandle = (e) => {
-        setLogin(true)
-    }
+    const { LogOut, profil, setProfil, categories, searchClass, searchResult, setSearchResult, login, setLogin, HandleOnclick } = useGlobalContext();
 
     //###
     return (
@@ -82,7 +24,6 @@ const Header = () => {
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-
                         </ul>
 
                         <form className="d-flex" role="search">
@@ -93,26 +34,36 @@ const Header = () => {
 
                             <div className="d-flex justify-align-items" style={{ justifyItems: 'center' }}>
                                 <strong className="px-2" style={{ color: "#2A7FB8B2" }}> | </strong>
-
                                 <span className={`dropdown dropstart ` + style.lang}>
-                                    <span className="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-person-circle"></i>
-                                    </span>
-                                    <ul className="dropdown-menu p-2 mx-3 mt-5">
-                                        <li><Link to="login" className="btn btn-sm btn bg_blue_btn dropdown-item text-center roundered" href="#">Sign in</Link></li>
-                                        <li className="drop">New visitor? <Link to="register" className="text-center text-blue" href="#" style={{textDecoration:"none"}}>Start here</Link></li>
-                                        {/* <li>
-                                            {login ?
-                                                <button className="dropdown-item text-center bg-light text-primary">Profil</button> :
-                                                <Link to="/login" className="dropdown-item text-center bg-light text-primary" onClick={() => setLogin(true)}>Login</Link>
-                                            }
-                                        </li> */}
-                                    </ul>
+                                    {
+                                        !login &&
+                                        (
+                                            <>
+                                                <span className="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i className="bi bi-person-circle"></i>
+                                                </span>
+                                                <ul className="dropdown-menu p-2 mx-3 mt-5">
+                                                    <li><Link to="login" className="btn btn-sm btn bg_blue_btn dropdown-item text-center roundered" href="#">Sign in</Link></li>
+                                                    <li className="drop">New visitor? <Link to="register" className="text-center text-blue" href="#" style={{ textDecoration: "none" }}>Start here</Link></li>
+                                                </ul>
+                                            </>
+                                        )
+                                    }
+
+                                    {
+                                        login &&
+                                        (
+                                            <span onClick={() => setProfil(true)} className="btn btn-sm text-success" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i className="bi bi-person-circle"></i>
+                                            </span>
+                                        )
+                                    }
+
                                 </span>
                                 <strong className="px-2" style={{ color: "#2A7FB8B2" }}> | </strong>
                                 <span className={`dropdown dropstart ` + style.lang}>
                                     <span className="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-globe-americas"></i>
+                                        <i className="bi bi-globe-americas"></i>
                                     </span>
                                     <ul className="dropdown-menu p-1">
                                         <li><Link to="/login" className="dropdown-item text-center bg-light text-primary" href="#">French</Link></li>
@@ -144,7 +95,7 @@ const Header = () => {
                                     <ul className="list-group list-group-flush p-0">
                                         {
                                             categories.map((item) => (
-                                                <li key={item.id} className="list-group-item text-left"><a href="#" className="text-dark" target="_blank" rel="noopener noreferrer">{item.title}</a> </li>
+                                                (item.id <= 4) && <li key={item.id} className="list-group-item text-left"><a href="#" className="text-dark" target="_blank" rel="noopener noreferrer">{item.title}</a> </li>
                                             ))
                                         }
                                     </ul>
@@ -156,13 +107,16 @@ const Header = () => {
                                                 <div className="row">
                                                     {
                                                         categories.map((item) => (
-                                                            <div className="col-md-3">
-                                                                <ItemCard key={item.id}
-                                                                    title={'Sockets'}
-                                                                    btnText={item.btnText}
-                                                                    btnUrl={item.btnUrl}
-                                                                    imgUrl={item.imgUrl}
-                                                                />
+                                                            <div className="col-md-3" key={item.id}>
+                                                                {
+                                                                    (item.id <= 4) &&
+                                                                    <ItemCard key={item.id}
+                                                                        title={'Sockets'}
+                                                                        btnText={item.btnText}
+                                                                        btnUrl={item.btnUrl}
+                                                                        imgUrl={item.imgUrl}
+                                                                    />
+                                                                }
                                                             </div>
                                                         ))
                                                     }
@@ -173,12 +127,15 @@ const Header = () => {
                                                     {
                                                         categories.map((item) => (
                                                             <div className="col-md-3">
-                                                                <ItemCard key={item.id}
-                                                                    title={'Sockets'}
-                                                                    btnText={item.btnText}
-                                                                    btnUrl={item.btnUrl}
-                                                                    imgUrl={item.imgUrl}
-                                                                />
+                                                                {
+                                                                    (item.id <= 4) &&
+                                                                    <ItemCard key={item.id}
+                                                                        title={'Sockets'}
+                                                                        btnText={item.btnText}
+                                                                        btnUrl={item.btnUrl}
+                                                                        imgUrl={item.imgUrl}
+                                                                    />
+                                                                }
                                                             </div>
                                                         ))
                                                     }
@@ -189,12 +146,15 @@ const Header = () => {
                                                     {
                                                         categories.map((item) => (
                                                             <div className="col-md-3">
-                                                                <ItemCard key={item.id}
-                                                                    title={'Sockets'}
-                                                                    btnText={item.btnText}
-                                                                    btnUrl={item.btnUrl}
-                                                                    imgUrl={item.imgUrl}
-                                                                />
+                                                                {
+                                                                    (item.id <= 4) &&
+                                                                    <ItemCard key={item.id}
+                                                                        title={'Sockets'}
+                                                                        btnText={item.btnText}
+                                                                        btnUrl={item.btnUrl}
+                                                                        imgUrl={item.imgUrl}
+                                                                    />
+                                                                }
                                                             </div>
                                                         ))
                                                     }
@@ -202,14 +162,67 @@ const Header = () => {
                                             </div>
                                         </div>
                                         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                                            <i class="bi bi-arrow-left-circle-fill" id={style.CarouselAction}></i>
+                                            <i className="bi bi-arrow-left-circle-fill" id={style.CarouselAction}></i>
                                             <span className="visually-hidden">Previous</span>
                                         </button>
                                         <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                                            <i class="bi bi-arrow-right-circle-fill" id={style.CarouselAction}></i>
+                                            <i className="bi bi-arrow-right-circle-fill" id={style.CarouselAction}></i>
                                             <span className="visually-hidden">Next</span>
                                         </button>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div >
+            }
+
+            {/* PROFIL */}
+            {profil &&
+                <div className="row" style={{ position: 'absolute', right: '0' }}>
+                    <div className="col-12">
+                        <div className="align-items-center px-5">
+                            <div className="row">
+                                <div className="card bg-light px-0" id={style.Profil} style={{ width: "20rem", marginRight: "0rem", height: "10px!important" }}>
+                                    <div className="card-header text-right bg_blue text-white d-flex" style={{ justifyContent: "space-between" }}>
+                                        <span className="">Pascal, your cart is empty</span>
+                                        <span type="button" onClick={() => setProfil(false)} className="btn-close text-white"></span>
+                                    </div>
+
+                                    <div className="d-flex mt-3" style={{ alignItems: "center" }}>
+                                        <img src="images/profil.png" alt="" className="mx-3" srcSet="" id={style.profilImg} />
+                                        <strong className="">Pascal Jerome</strong>
+                                    </div>
+                                    <hr />
+
+                                    <Link to={"/dashbord"} className={"btn btn-sm w-50 mx-2 my-1 " + style.goToAccount}>Go to my account</Link>
+
+                                    <ul className="list-group list-group-flush px-2">
+                                        <li className="list-group-item text-left"><a href="#" className="text-dark" target="_blank" rel="noopener noreferrer">Your Lists</a> </li>
+                                        <li className="list-group-item text-left"><a href="#" className="text-dark" target="_blank" rel="noopener noreferrer">Your Borrowings</a> </li>
+                                        <li className="list-group-item text-left"><a href="#" className="text-dark" target="_blank" rel="noopener noreferrer">Your Orders</a> </li>
+                                        <li className="list-group-item text-left"><a href="#" className="text-dark" target="_blank" rel="noopener noreferrer">Your Rentals</a> </li>
+                                        <li className="list-group-item text-left"><a href="#" className="text-dark" target="_blank" rel="noopener noreferrer">Shop the Deals & Save </a> </li>
+                                    </ul>
+
+                                    {/* <hr /> */}
+
+                                    <ul className="list-group list-group-flush px-2">
+                                        <li className="list-group-item text-left"><a href="#" className="text-dark" target="_blank" rel="noopener noreferrer">Discover all the trending products</a> </li>
+                                        <li className="list-group-item text-left"><a href="#" className="text-dark" target="_blank" rel="noopener noreferrer">Shop all the new products</a> </li>
+                                    </ul>
+
+                                    {/* <hr /> */}
+                                    <ul className="list-group list-group-flush px-2">
+                                        <li className="list-group-item text-left"><a href="#" className="text-dark" target="_blank" rel="noopener noreferrer">Customer Service</a> </li>
+                                    </ul>
+
+                                    {/* <hr /> */}
+
+                                    <button
+                                        onClick={LogOut}
+                                        className={"btn btn-sm w- mx-2 my-2 w-50 " + style.signOff}>Sign off</button>
+
                                 </div>
                             </div>
                         </div>

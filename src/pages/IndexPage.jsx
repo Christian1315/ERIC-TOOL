@@ -6,244 +6,10 @@ import style from "../assets/indexPage.module.css"
 import SectionTitle from "../components/SectionTitle";
 import ItemCard from "../components/ItemCard";
 import Footer from "../components/Footer";
-// import style from "../assets/banner.module.css";
+import { useGlobalContext } from '../Context';
 
 const IndexPage = () => {
-
-    // AFTER BANNER DATA
-    const [itemsCard, setItemCard] = useState([
-        {
-            "id": 1,
-            "active": true,
-            "title": "BORROW AN ITEM",
-            "description": "Select this option to borrow any items from the listing categories below. Then return it within the selected time frame",
-        },
-        {
-            "id": 2,
-            "active": false,
-            "title": "RENT AN ITEM",
-            "description": "Select this option to rent any items from the listing categories below. Then return it within the selected time frame",
-        },
-        {
-            "id": 3,
-            "active": false,
-            "title": "SHOP",
-            "description": "Select this option to buy any items from the listing categories below. Plus enjoy the in-account exclusive deals",
-        },
-        {
-            "id": 4,
-            "active": false,
-            "title": "RETURN AN ITEM",
-            "description": "Select this option to return any item on your borrowings and rentals list within the selected period of time.",
-        }
-    ])
-
-    const HandleCardClick = (id) => {
-        const itemTransformeds = itemsCard.map((item) => (
-            item.id == id ? { ...item, 'active': true } : { ...item, 'active': false }
-        ))
-
-        setItemCard(itemTransformeds)
-    }
-    // END AFTER BANNER DATA
-
-    // CATEGORY SECTION DATA
-    const [categories, setCategories] = useState([
-        {
-            "id": 1,
-            "imgUrl": "images/item1.png",
-            "title": "Sockets",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 2,
-            "imgUrl": "images/item2.png",
-            "title": "Pliers",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 3,
-            "imgUrl": "images/item3.png",
-            "title": "Power Tools",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 4,
-            "imgUrl": "images/item1.png",
-            "title": "Screwdrivers",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 5,
-            "imgUrl": "images/item3.png",
-            "title": "Drill Bits",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 6,
-            "imgUrl": "images/item2.png",
-            "title": "Impact hex Bits",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 7,
-            "imgUrl": "images/item1.png",
-            "title": "Impact hex Bits",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 8,
-            "imgUrl": "images/item3.png",
-            "title": "Impact hex Bits",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        }
-    ])
-
-    // CATEGORY SECTION DATA
-    const [generaleCategories, setGeneraleCategories] = useState([
-        {
-            "id": 1,
-            "imgUrl": "images/item1.png",
-            "title": "Sockets",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 2,
-            "imgUrl": "images/item2.png",
-            "title": "Pliers",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 3,
-            "imgUrl": "images/item3.png",
-            "title": "Power Tools",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 4,
-            "imgUrl": "images/item1.png",
-            "title": "Screwdrivers",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 5,
-            "imgUrl": "images/item3.png",
-            "title": "Drill Bits",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 6,
-            "imgUrl": "images/item2.png",
-            "title": "Impact hex Bits",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 7,
-            "imgUrl": "images/item1.png",
-            "title": "Impact hex Bits",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        ,
-        {
-            "id": 8,
-            "imgUrl": "images/item3.png",
-            "title": "Impact hex Bits",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        }
-        ,
-        {
-            "id": 9,
-            "imgUrl": "images/item2.png",
-            "title": "Impact hex Bits",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        }
-        ,
-        {
-            "id": 10,
-            "imgUrl": "images/item1.png",
-            "title": "Impact hex Bits",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        ,
-        {
-            "id": 11,
-            "imgUrl": "images/item3.png",
-            "title": "Impact hex Bits",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        },
-        {
-            "id": 12,
-            "imgUrl": "images/item3.png",
-            "title": "Impact hex Bits",
-            "description": "Select this option to borrow any items from ...",
-            "btnExist": true,
-            "btnText": "Select",
-            "btnUrl": "#",
-        }
-    ])
-
-
-    // GESTION DES SLIDES
-    const [firstSlide, setFirstSlide] = useState(true)
-    const [secondSlide, setSecondSlide] = useState(false)
-    const [thirdSlide, setThirdSlide] = useState(false)
+    const { categories, itemsCard, setItemCard, HandleCardClick, generaleCategories, setGeneraleCategories, firstSlide, setFirstSlide, secondSlide, setSecondSlide, thirdSlide, setThirdSlide } = useGlobalContext();
 
     return (
         <>
@@ -298,7 +64,7 @@ const IndexPage = () => {
                                         categories.map((item, index) => (
                                             <div className="col-2" key={item.id}>
                                                 {
-                                                    ((index + 1) <= 6)
+                                                    (index <= 5)
                                                     &&
                                                     (
                                                         <ItemCard
@@ -315,14 +81,37 @@ const IndexPage = () => {
                                     }
                                 </div>
                             </div>
-                            <div className="row">
+                            <div className="carousel-item">
+                                <div className="row">
+                                    {
+                                        categories.map((item, index) => (
+                                            <div className="col-2" key={item.id}>
+                                                {
+                                                    (index <= 5)
+                                                    &&
+                                                    (
+                                                        <ItemCard
+                                                            title={item.title}
+                                                            description={item.description}
+                                                            btnText={item.btnText}
+                                                            btnUrl={item.btnUrl}
+                                                            imgUrl={item.imgUrl}
+                                                        />
+                                                    )
+                                                }
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                            {/* <div className="row">
                                 {
                                     secondSlide && categories.map((item, index) => (
                                         <div className="col-2" key={item.id}>
                                             {
                                                 <div className="carousel-item">
                                                     {
-                                                        ((index + 1) <= 12)
+                                                        (5 < index && index <= 11)
                                                         &&
                                                         (
                                                             <ItemCard
@@ -333,12 +122,6 @@ const IndexPage = () => {
                                                                 imgUrl={item.imgUrl}
                                                             />
                                                         )
-                                                        // &&
-                                                        // setThirdSlide(true)
-                                                    }
-
-                                                    {
-                                                        setThirdSlide(true)
                                                     }
                                                 </div>
                                             }
@@ -348,12 +131,12 @@ const IndexPage = () => {
                             </div>
                             <div className="row">
                                 {
-                                    thirdSlide && categories.map((item, index) => (
+                                    categories.map((item, index) => (
                                         <div className="col-2" key={item.id}>
                                             {
                                                 <div className="carousel-item">
                                                     {
-                                                        ((index + 1) <= 18)
+                                                        (11 < index && index < 1)
                                                         &&
                                                         (
                                                             <ItemCard
@@ -370,15 +153,15 @@ const IndexPage = () => {
                                         </div>
                                     ))
                                 }
-                            </div>
+                            </div> */}
 
                         </div>
-                        <button className="carousel-control-prev text-dark" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                            <span style={{ backgroundColor: "#000!impportant" }} className="carousel-control-prev-icon bg_blue" aria-hidden="true"></span>
+                        <button className={"carousel-control-prev " + style.slideLeft} type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <span className="shadow-lg" aria-hidden="true"><i className="bi bi-caret-left"></i></span>
                             <span className="visually-hidden">Previous</span>
                         </button>
-                        <button className="carousel-control-next text-dark" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                            <span style={{ backgroundColor: "#000!impportant" }} className="carousel-control-next-icon bg_blue" aria-hidden="true"></span>
+                        <button className={"carousel-control-next " + style.slideRight} type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                            <span className="shadow-lg" aria-hidden="true"><i className="bi bi-caret-right"></i></span>
                             <span className="visually-hidden">Next</span>
                         </button>
                     </div>

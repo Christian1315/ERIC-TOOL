@@ -24,3 +24,9 @@
     color: #fff!important;
     background-color: #2A7FB8!important;
 }
+
+#itemCard a:hover{
+    color: #2A7FB8!important;
+    background-color: #fff!important;
+    border-color: #2A7FB8;
+}
