@@ -1,0 +1,117 @@
+* {
+    font-family: "Roboto Slab";
+}
+
+#dashHeader, .d_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#dashHeader .dashHeaderTitle {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+#dashHeader .dropdownBtn button {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+
+    color: #2A7FB8B2 !important;
+    border: solid 1px #2A7FB8B2;
+    border-radius: 20px;
+}
+
+#dashHeader .d_flex .actionBtn {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.dashHeaderText {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18.46px;
+}
+
+/* NAV SWITCH */
+#nav_swith {
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+#nav_swith a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 23.74px;
+    margin-right: 10px;
+    color: #226694b2;
+}
+
+#nav_swith a.active {
+    border-bottom: 5px solid #2A7FB8B2;
+}
+
+/* SLIDES */
+#slides {
+    background: #5DA2C530;
+    padding-block: 10px;
+    text-align: center !important;
+}
+
+#slides .slides_title {
+    color: #DE8C08;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 23.74px;
+}
+
+.textOrange {
+    color: #DE8C08;
+}
+
+#carouselIndicators button {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+}
+
+#carouselIndicators button.active {
+    background-color: #DE8C08 !important;
+}
+
+/* SLIDES CONTENT */
+#slidesContent {}
+
+#slides_card {
+    cursor: pointer;
+}
+
+#slides_card:hover{
+    background-color:#5DA2C530 ;
+    transition: 1s;
+}
+
+.block {
+    align-items: center !important;
+}
+
+.block i {
+    color: #2A7FB8B2;
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+.block .title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26.38px;
+}
+
+.block .description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.46px;
+}
