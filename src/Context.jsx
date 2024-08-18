@@ -284,9 +284,33 @@ const AppProvider = ({ children }) => {
     const [secondSlide, setSecondSlide] = useState(false)
     const [thirdSlide, setThirdSlide] = useState(false)
 
+
+    //=========== DASHBORD PAGE ==========//
+    const [navLinks, setNavLinks] = useState([
+        {
+            "id": 1,
+            "label": "Account Home Links",
+            "active": true
+        },
+        {
+            "id": 2,
+            "label": "Account Settings",
+            "active": false
+        }
+    ])
+
+    const ClickSwitchNav = (id) => {
+        var new_links = navLinks.map((item) => (
+            item.id == id ?
+                { ...item, active: true } :
+                { ...item, active: false }
+        ))
+        setNavLinks(new_links)
+    }
+
     // RENDERING
     return (
-        <AppContext.Provider value={{itemsCard,setItemCard,setThirdSlide,thirdSlide,secondSlide,setSecondSlide,firstSlide,setFirstSlide,generaleCategories,setGeneraleCategories,HandleCardClick,LogOut,profil,setProfil,SubmitLogin, categories, setCategories, searchClass, setSearchClass, searchResult, setSearchResult, login, setLogin, HandleOnclick, HandleOnblur, LoginHandle }}>
+        <AppContext.Provider value={{ navLinks, setNavLinks, ClickSwitchNav, itemsCard, setItemCard, setThirdSlide, thirdSlide, secondSlide, setSecondSlide, firstSlide, setFirstSlide, generaleCategories, setGeneraleCategories, HandleCardClick, LogOut, profil, setProfil, SubmitLogin, categories, setCategories, searchClass, setSearchClass, searchResult, setSearchResult, login, setLogin, HandleOnclick, HandleOnblur, LoginHandle }}>
             {children}
         </AppContext.Provider>
     )
